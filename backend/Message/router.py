@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 
-from app.backend.Message.dao import MessageDAO
-from app.backend.Message.rb import RBMessage
-from app.backend.Message.schemas import SMessage, SMessageAdd
-from app.backend.users.dependencies import get_current_admin_user
-from app.backend.users.models import User
+from backend.Message.dao import MessageDAO
+from backend.Message.rb import RBMessage
+from backend.Message.schemas import SMessage, SMessageAdd
+from backend.users.dependencies import get_current_admin_user
+from backend.users.models import User
 
 
 router = APIRouter(

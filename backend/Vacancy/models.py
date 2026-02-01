@@ -1,7 +1,7 @@
 from sqlalchemy import String, Integer, ForeignKey, BOOLEAN
 from sqlalchemy.dialects.mysql import DATETIME, DATE
 from sqlalchemy.orm import Mapped, mapped_column
-from app.backend.database import Base
+from backend.database import Base
 from datetime import datetime, date
 
 class Vacancy(Base):

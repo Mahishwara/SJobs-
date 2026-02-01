@@ -1,8 +1,8 @@
 from sqlalchemy import String, Integer
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from app.backend.Application.models import Application
-from app.backend.database import Base
+from backend.Application.models import Application
+from backend.database import Base
 
 
 class Status(Base):

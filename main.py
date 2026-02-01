@@ -4,16 +4,16 @@ from fastapi_cors import CORS
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-from app.backend.users.router import router as router_user
-from app.backend.Student.router import router as router_student
-from app.backend.Status.router import router as router_status
-from app.backend.Skill.router import router as router_skill
-from app.backend.Vacancy.router import router as router_vacancy
-from app.backend.Message.router import router as router_message
-from app.backend.Employer.router import router as router_employer
-from app.backend.Feedback.router import router as router_feedback
-from app.backend.Interview.router import router as router_interview
-from app.backend.Application.router import router as router_application
+from backend.users.router import router as router_user
+from backend.Student.router import router as router_student
+from backend.Status.router import router as router_status
+from backend.Skill.router import router as router_skill
+from backend.Vacancy.router import router as router_vacancy
+from backend.Message.router import router as router_message
+from backend.Employer.router import router as router_employer
+from backend.Feedback.router import router as router_feedback
+from backend.Interview.router import router as router_interview
+from backend.Application.router import router as router_application
 
 origins = [
     "http://localhost.tiangolo.com",

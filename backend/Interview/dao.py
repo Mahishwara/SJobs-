@@ -1,5 +1,5 @@
-from app.backend.dao.base import BaseDAO
-from app.backend.Interview.models import Interview
+from backend.dao.base import BaseDAO
+from backend.Interview.models import Interview
 
 
 class InterviewDAO(BaseDAO):
