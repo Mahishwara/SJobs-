@@ -1,7 +1,7 @@
 from sqlalchemy import text, Column, String, Integer
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from Sjobs.backend.database import Base
+from app.backend.database import Base
 
 
 class Skill(Base):

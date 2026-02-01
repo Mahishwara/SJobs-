@@ -1,9 +1,9 @@
 from scripts.regsetup import description
 import datetime
 from sqlalchemy import select, or_
-from Sjobs.backend.dao.base import BaseDAO
-from Sjobs.backend.Vacancy.models import Vacancy
-from Sjobs.backend.database import async_session_maker
+from app.backend.dao.base import BaseDAO
+from app.backend.Vacancy.models import Vacancy
+from app.backend.database import async_session_maker
 
 
 class VacancyDAO(BaseDAO):

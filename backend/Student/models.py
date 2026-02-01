@@ -1,6 +1,6 @@
 from sqlalchemy import String, Integer, ForeignKey, Boolean
 from sqlalchemy.orm import Mapped, mapped_column
-from Sjobs.backend.database import Base
+from app.backend.database import Base
 
 
 class Student(Base):

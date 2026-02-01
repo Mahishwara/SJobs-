@@ -1,5 +1,5 @@
-from Sjobs.backend.dao.base import BaseDAO
-from Sjobs.backend.users.models import User
+from app.backend.dao.base import BaseDAO
+from app.backend.users.models import User
 
 
 class UsersDAO(BaseDAO):

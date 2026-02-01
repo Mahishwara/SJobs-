@@ -2,10 +2,10 @@ from fastapi import Request, HTTPException, status, Depends
 import jwt
 from jwt import PyJWTError
 from datetime import datetime, timezone
-from Sjobs.backend.config import get_auth_data
-from Sjobs.backend.exceptions import TokenExpiredException, NoJwtException, NoUserIdException, ForbiddenException, TokenNoFound
-from Sjobs.backend.users.dao import UsersDAO
-from Sjobs.backend.users.models import User
+from app.backend.config import get_auth_data
+from app.backend.exceptions import TokenExpiredException, NoJwtException, NoUserIdException, ForbiddenException, TokenNoFound
+from app.backend.users.dao import UsersDAO
+from app.backend.users.models import User
 
 
 def get_token(request: Request):

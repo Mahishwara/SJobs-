@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 
-from Sjobs.backend.Application.dao import ApplicationDAO
-from Sjobs.backend.Application.rb import RBApplication
-from Sjobs.backend.Application.schemas import SApplication, SApplicationAdd, SApplicationUpdStatus
-from Sjobs.backend.users.dependencies import get_current_admin_user
-from Sjobs.backend.users.models import User
+from app.backend.Application.dao import ApplicationDAO
+from app.backend.Application.rb import RBApplication
+from app.backend.Application.schemas import SApplication, SApplicationAdd, SApplicationUpdStatus
+from app.backend.users.dependencies import get_current_admin_user
+from app.backend.users.models import User
 
 
 router = APIRouter(

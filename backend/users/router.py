@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Response, Depends
-from Sjobs.backend.exceptions import UserAlreadyExistsException, IncorrectEmailOrPasswordException
-from Sjobs.backend.users.auth import get_password_hash, authenticate_user, create_access_token
-from Sjobs.backend.users.dao import UsersDAO
-from Sjobs.backend.users.dependencies import  get_current_admin_user, get_current_user
-from Sjobs.backend.users.models import User
-from Sjobs.backend.users.schemas import SUserRegister, SUserAuth, SUser, SToken
-from Sjobs.backend.users.rb import RBUser, RBToken
+from app.backend.exceptions import UserAlreadyExistsException, IncorrectEmailOrPasswordException
+from app.backend.users.auth import get_password_hash, authenticate_user, create_access_token
+from app.backend.users.dao import UsersDAO
+from app.backend.users.dependencies import  get_current_admin_user, get_current_user
+from app.backend.users.models import User
+from app.backend.users.schemas import SUserRegister, SUserAuth, SUser, SToken
+from app.backend.users.rb import RBUser, RBToken
 from fastapi import Request
 
 router = APIRouter(prefix='/api/auth', tags=['Пользователь'])
