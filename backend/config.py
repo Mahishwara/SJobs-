@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     SECRET_KEY = os.getenv('SECRET_KEY')
     ALGORITHM = os.getenv('ALGORITHM')
 
-settings = Settings(os.environ)
+settings = Settings()
 
 
 def get_auth_data():
