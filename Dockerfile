@@ -8,6 +8,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Копируем проект
 COPY . .
 
+
 # Создаем стартовую миграцию (первоначальную структуру базы данных)
 RUN alembic revision --autogenerate -m "initial migration"
 
