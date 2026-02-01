@@ -2,15 +2,27 @@ import os
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
-class Settings:
-    POSTGRES_USER = os.getenv('POSTGRES_USER')
-    POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
-    POSTGRES_DB = os.getenv('POSTGRES_DB')
-    POSTGRES_HOST = os.getenv('POSTGRES_HOST')
-    SECRET_KEY = os.getenv('SECRET_KEY')
-    ALGORITHM = os.getenv('ALGORITHM')
+class Settings(BaseSettings):
 
-settings = Settings()
+    POSTGRES_USER: str
+    POSTGRES_PASSWORD: str
+    POSTGRES_DB: str
+    POSTGRES_HOST: str
+    POSTGRES_PORT: str
+    POSTGRES_DB: str
+    SECRET_KEY: str
+    ALGORITHM: str
+
+    model_config = SettingsConfigDict(
+        env_file=os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".env")
+    )
+
+
+settings = Settings
+
+
+def get_db_url():
+    return f'mysql+aiomysql://{settings.DB_USER}:{settings.DB_PASSWORD}@{settings.DB_HOST}/{settings.DB_NAME}'
 
 
 def get_auth_data():
