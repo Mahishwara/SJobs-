@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     )
 
 
-settings = Settings
+settings = Settings()
 
 
 def get_db_url():
