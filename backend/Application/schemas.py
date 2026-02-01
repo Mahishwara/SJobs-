@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field, field_validator
 import datetime
 
 
-class SSjobs.backend.lication(BaseModel):
+class SApplication(BaseModel):
     class Config:
         from_attributes = True
 
@@ -14,11 +14,11 @@ class SSjobs.backend.lication(BaseModel):
 
 
 
-class SSjobs.backend.licationAdd(BaseModel):
+class SApplicationAdd(BaseModel):
     id_student: int = Field(..., description='Ссылка на студента')
     id_vacancy: int = Field(..., description='Ссылка на вакансию')
 
 
 
-class SSjobs.backend.licationUpdStatus(BaseModel):
+class SApplicationUpdStatus(BaseModel):
     id_status: int = Field(..., description='Ссылка на новый статус')

@@ -1,21 +1,21 @@
 from sqlalchemy import String, Integer, ForeignKey, Boolean
-from sqlalchemy.orm import MSjobs.backend.ed, mSjobs.backend.ed_column
-from Sjobs.backend..backend.database import Base
+from sqlalchemy.orm import Mapped, mapped_column
+from Sjobs.backend.database import Base
 
 
 class Student(Base):
     __tablename__ = 'students'
 
-    id: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(Integer, primary_key=True)
-    fio: MSjobs.backend.ed[String] = mSjobs.backend.ed_column(String(100), nullable=False)
-    post: MSjobs.backend.ed[str] = mSjobs.backend.ed_column(String(50), nullable=False)
-    level_skill: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(ForeignKey('level_skills.id'), nullable=False)
-    speciality: MSjobs.backend.ed[str] = mSjobs.backend.ed_column(String(200), nullable=False)
-    course: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(Integer, nullable=False)
-    ability: MSjobs.backend.ed[str] = mSjobs.backend.ed_column(String(500), nullable=False)
-    user_id: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(Integer, ForeignKey('users.id'), nullable=False)
-    subscribe: MSjobs.backend.ed[bool] = mSjobs.backend.ed_column(Boolean, nullable=False, default=False)
-    code_word: MSjobs.backend.ed[str] = mSjobs.backend.ed_column(String(50), nullable=False, default='')
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    fio: Mapped[String] = mapped_column(String(100), nullable=False)
+    post: Mapped[str] = mapped_column(String(50), nullable=False)
+    level_skill: Mapped[int] = mapped_column(ForeignKey('level_skills.id'), nullable=False)
+    speciality: Mapped[str] = mapped_column(String(200), nullable=False)
+    course: Mapped[int] = mapped_column(Integer, nullable=False)
+    ability: Mapped[str] = mapped_column(String(500), nullable=False)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey('users.id'), nullable=False)
+    subscribe: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    code_word: Mapped[str] = mapped_column(String(50), nullable=False, default='')
     extend_existing = True
 
     def __str__(self):

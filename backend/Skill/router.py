@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 
-from Sjobs.backend..backend.Skill.dao import SkillDAO
-from Sjobs.backend..backend.Skill.rb import RBSkill
-from Sjobs.backend..backend.Skill.schemas import SSkill, SSkillAdd, SSkillUpd
-from Sjobs.backend..backend.users.dependencies import get_current_admin_user
-from Sjobs.backend..backend.users.models import User
+from Sjobs.backend.Skill.dao import SkillDAO
+from Sjobs.backend.Skill.rb import RBSkill
+from Sjobs.backend.Skill.schemas import SSkill, SSkillAdd, SSkillUpd
+from Sjobs.backend.users.dependencies import get_current_admin_user
+from Sjobs.backend.users.models import User
 
 
 router = APIRouter(

@@ -1,6 +1,6 @@
-from Sjobs.backend..backend.dao.base import BaseDAO
-from Sjobs.backend..backend.Sjobs.backend.lication.models import Sjobs.backend.lication
+from Sjobs.backend.dao.base import BaseDAO
+from Sjobs.backend.Application.models import Application
 
 
-class Sjobs.backend.licationDAO(BaseDAO):
-    model = Sjobs.backend.lication
+class ApplicationDAO(BaseDAO):
+    model = Application

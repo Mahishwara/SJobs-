@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 
-from Sjobs.backend..backend.Message.dao import MessageDAO
-from Sjobs.backend..backend.Message.rb import RBMessage
-from Sjobs.backend..backend.Message.schemas import SMessage, SMessageAdd
-from Sjobs.backend..backend.users.dependencies import get_current_admin_user
-from Sjobs.backend..backend.users.models import User
+from Sjobs.backend.Message.dao import MessageDAO
+from Sjobs.backend.Message.rb import RBMessage
+from Sjobs.backend.Message.schemas import SMessage, SMessageAdd
+from Sjobs.backend.users.dependencies import get_current_admin_user
+from Sjobs.backend.users.models import User
 
 
 router = APIRouter(

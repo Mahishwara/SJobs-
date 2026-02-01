@@ -1,12 +1,12 @@
 from fastapi import APIRouter, Depends
 
-from Sjobs.backend..backend.Student.dao import StudentDAO
-from Sjobs.backend..backend.Student.rb import RBStudent
-from Sjobs.backend..backend.Student.schemas import SStudent, SStudentAdd, SStudentUpd
-from Sjobs.backend..backend.users.router import update_user
-from Sjobs.backend..backend.users.dependencies import get_current_user
-from Sjobs.backend..backend.users.models import User
-from Sjobs.backend..backend.users.router import update_user
+from Sjobs.backend.Student.dao import StudentDAO
+from Sjobs.backend.Student.rb import RBStudent
+from Sjobs.backend.Student.schemas import SStudent, SStudentAdd, SStudentUpd
+from Sjobs.backend.users.router import update_user
+from Sjobs.backend.users.dependencies import get_current_user
+from Sjobs.backend.users.models import User
+from Sjobs.backend.users.router import update_user
 
 router = APIRouter(
     prefix='/api/students',

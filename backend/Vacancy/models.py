@@ -1,22 +1,22 @@
 from sqlalchemy import String, Integer, ForeignKey, BOOLEAN
 from sqlalchemy.dialects.mysql import DATETIME, DATE
-from sqlalchemy.orm import MSjobs.backend.ed, mSjobs.backend.ed_column
-from Sjobs.backend..backend.database import Base
+from sqlalchemy.orm import Mapped, mapped_column
+from Sjobs.backend.database import Base
 from datetime import datetime, date
 
 class Vacancy(Base):
     __tablename__ = 'vacancies'
 
-    id: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(Integer, primary_key=True)
-    post: MSjobs.backend.ed[str] = mSjobs.backend.ed_column(String(50), nullable=False)
-    description: MSjobs.backend.ed[str] = mSjobs.backend.ed_column(String(100), nullable=False)
-    publication_date: MSjobs.backend.ed[datetime] = mSjobs.backend.ed_column(DATETIME, nullable=True, default=datetime.now)
-    date_begin: MSjobs.backend.ed[date] = mSjobs.backend.ed_column(DATE, nullable=True)
-    date_end: MSjobs.backend.ed[date] = mSjobs.backend.ed_column(DATE, nullable=True)
-    level_skill: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(ForeignKey('level_skills.id'), nullable=False)
-    salary: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(Integer, nullable=False)
-    id_employer: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(ForeignKey('employers.id'), nullable=False)
-    is_active: MSjobs.backend.ed[bool] = mSjobs.backend.ed_column(BOOLEAN, nullable=False, default=True)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    post: Mapped[str] = mapped_column(String(50), nullable=False)
+    description: Mapped[str] = mapped_column(String(100), nullable=False)
+    publication_date: Mapped[datetime] = mapped_column(DATETIME, nullable=True, default=datetime.now)
+    date_begin: Mapped[date] = mapped_column(DATE, nullable=True)
+    date_end: Mapped[date] = mapped_column(DATE, nullable=True)
+    level_skill: Mapped[int] = mapped_column(ForeignKey('level_skills.id'), nullable=False)
+    salary: Mapped[int] = mapped_column(Integer, nullable=False)
+    id_employer: Mapped[int] = mapped_column(ForeignKey('employers.id'), nullable=False)
+    is_active: Mapped[bool] = mapped_column(BOOLEAN, nullable=False, default=True)
     extend_existing = True
 
     def __str__(self):

@@ -1,5 +1,5 @@
-from Sjobs.backend..backend.dao.base import BaseDAO
-from Sjobs.backend..backend.Skill.models import Skill
+from Sjobs.backend.dao.base import BaseDAO
+from Sjobs.backend.Skill.models import Skill
 
 
 class SkillDAO(BaseDAO):
