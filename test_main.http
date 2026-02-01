@@ -1,0 +1,1 @@
+GET http://karasevmikhail.pythonanywhere.com/find_vacancies?field='post'&text=''
