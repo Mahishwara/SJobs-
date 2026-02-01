@@ -1,17 +1,17 @@
 from sqlalchemy import String, Integer, ForeignKey, DATE, Boolean
-from sqlalchemy.orm import Mapped, mapped_column
-from app.backend.database import Base
+from sqlalchemy.orm import MSjobs.backend.ed, mSjobs.backend.ed_column
+from Sjobs.backend..backend.database import Base
 from datetime import date
 
 
-class Application(Base):
-    __tablename__ = 'applications'
+class Sjobs.backend.lication(Base):
+    __tablename__ = 'Sjobs.backend.lications'
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    id_student: Mapped[int] = mapped_column(ForeignKey('students.id'), nullable=False)
-    id_vacancy: Mapped[int] = mapped_column(ForeignKey('vacancies.id'), nullable=False)
-    date: Mapped[date] = mapped_column(DATE, default=date.today())
-    id_status: Mapped[int] = mapped_column(ForeignKey('statuses.id'), default=1)
+    id: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(Integer, primary_key=True)
+    id_student: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(ForeignKey('students.id'), nullable=False)
+    id_vacancy: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(ForeignKey('vacancies.id'), nullable=False)
+    date: MSjobs.backend.ed[date] = mSjobs.backend.ed_column(DATE, default=date.today())
+    id_status: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(ForeignKey('statuses.id'), default=1)
 
 
     extend_existing = True

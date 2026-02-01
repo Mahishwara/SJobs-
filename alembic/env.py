@@ -5,17 +5,17 @@ from os.path import dirname, abspath
 
 sys.path.insert(0, dirname(dirname(abspath(__file__))))
 
-from app.backend.database import DATABASE_URL, Base
-from app.backend.Status.models import Status
-from app.backend.Application.models import Application
-from app.backend.Employer.models import Employer
-from app.backend.Feedback.models import Feedback
-from app.backend.Message.models import Message
-from app.backend.Skill.models import Skill
-from app.backend.Student.models import Student
-from app.backend.users.models import User
-from app.backend.Vacancy.models import Vacancy
-from app.backend.Interview.models import Interview
+from Sjobs.backend..backend.database import DATABASE_URL, Base
+from Sjobs.backend..backend.Status.models import Status
+from Sjobs.backend..backend.Sjobs.backend.lication.models import Sjobs.backend.lication
+from Sjobs.backend..backend.Employer.models import Employer
+from Sjobs.backend..backend.Feedback.models import Feedback
+from Sjobs.backend..backend.Message.models import Message
+from Sjobs.backend..backend.Skill.models import Skill
+from Sjobs.backend..backend.Student.models import Student
+from Sjobs.backend..backend.users.models import User
+from Sjobs.backend..backend.Vacancy.models import Vacancy
+from Sjobs.backend..backend.Interview.models import Interview
 from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
@@ -34,7 +34,7 @@ if config.config_file_name is not None:
 
 # add your model's MetaData object here
 # for 'autogenerate' support
-# from myapp import mymodel
+# from mySjobs.backend. import mymodel
 # target_metadata = mymodel.Base.metadata
 target_metadata = Base.metadata
 

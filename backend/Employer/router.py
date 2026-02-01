@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends
 
-from app.backend.Employer.dao import EmployerDAO
-from app.backend.Employer.rb import RBEmployer
-from app.backend.Employer.schemas import SEmployer, SEmployerAdd, SEmployerUpd
-from app.backend.users.dependencies import get_current_user
-from app.backend.users.models import User
-from app.backend.users.router import update_user
+from Sjobs.backend..backend.Employer.dao import EmployerDAO
+from Sjobs.backend..backend.Employer.rb import RBEmployer
+from Sjobs.backend..backend.Employer.schemas import SEmployer, SEmployerAdd, SEmployerUpd
+from Sjobs.backend..backend.users.dependencies import get_current_user
+from Sjobs.backend..backend.users.models import User
+from Sjobs.backend..backend.users.router import update_user
 
 
 router = APIRouter(

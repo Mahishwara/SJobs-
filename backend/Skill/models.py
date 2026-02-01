@@ -1,14 +1,14 @@
 from sqlalchemy import text, Column, String, Integer
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import MSjobs.backend.ed, mSjobs.backend.ed_column, relationship
 
-from app.backend.database import Base
+from Sjobs.backend..backend.database import Base
 
 
 class Skill(Base):
     __tablename__ = 'level_skills'
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    level: Mapped[int] = mapped_column(String(50), nullable=False)
+    id: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(Integer, primary_key=True)
+    level: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(String(50), nullable=False)
     extend_existing = True
 
     def __str__(self):

@@ -1,17 +1,17 @@
 from sqlalchemy import String, Integer, ForeignKey
-from sqlalchemy.orm import Mapped, mapped_column
-from app.backend.database import Base
+from sqlalchemy.orm import MSjobs.backend.ed, mSjobs.backend.ed_column
+from Sjobs.backend..backend.database import Base
 
 
 class Feedback(Base):
     __tablename__ = 'feedbacks'
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    id_to: Mapped[int] = mapped_column(Integer, nullable=False)
-    id_from: Mapped[int] = mapped_column(Integer, nullable=False)
-    rate: Mapped[int] = mapped_column(Integer, nullable=False)
-    description: Mapped[str] = mapped_column(String(200), nullable=True)
-    path: Mapped[int] = mapped_column(Integer, nullable=True)
+    id: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(Integer, primary_key=True)
+    id_to: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(Integer, nullable=False)
+    id_from: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(Integer, nullable=False)
+    rate: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(Integer, nullable=False)
+    description: MSjobs.backend.ed[str] = mSjobs.backend.ed_column(String(200), nullable=True)
+    path: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(Integer, nullable=True)
     extend_existing = True
 
     def __str__(self):

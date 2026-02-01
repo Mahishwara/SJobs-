@@ -1,5 +1,5 @@
-from app.backend.dao.base import BaseDAO
-from app.backend.Message.models import Message
+from Sjobs.backend..backend.dao.base import BaseDAO
+from Sjobs.backend..backend.Message.models import Message
 
 
 class MessageDAO(BaseDAO):

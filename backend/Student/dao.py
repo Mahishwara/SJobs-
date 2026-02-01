@@ -1,5 +1,5 @@
-from app.backend.dao.base import BaseDAO
-from app.backend.Student.models import Student
+from Sjobs.backend..backend.dao.base import BaseDAO
+from Sjobs.backend..backend.Student.models import Student
 
 
 class StudentDAO(BaseDAO):

@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 
-from app.backend.Interview.dao import InterviewDAO
-from app.backend.Interview.rb import RBInterview
-from app.backend.Interview.schemas import SInterview, SInterviewAdd, SInterviewUpd
-from app.backend.users.dependencies import get_current_admin_user
-from app.backend.users.models import User
+from Sjobs.backend..backend.Interview.dao import InterviewDAO
+from Sjobs.backend..backend.Interview.rb import RBInterview
+from Sjobs.backend..backend.Interview.schemas import SInterview, SInterviewAdd, SInterviewUpd
+from Sjobs.backend..backend.users.dependencies import get_current_admin_user
+from Sjobs.backend..backend.users.models import User
 
 
 router = APIRouter(

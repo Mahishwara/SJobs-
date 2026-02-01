@@ -1,17 +1,17 @@
 from sqlalchemy import String, Integer,DATE, ForeignKey, Time
-from sqlalchemy.orm import Mapped, mapped_column, relationship
-from app.backend.database import Base
+from sqlalchemy.orm import MSjobs.backend.ed, mSjobs.backend.ed_column, relationship
+from Sjobs.backend..backend.database import Base
 import datetime
 
 
 class Interview(Base):
     __tablename__ = 'interview'
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    id_student: Mapped[int] = mapped_column(ForeignKey("students.id"), nullable=False)
-    id_vacancy: Mapped[int] = mapped_column(ForeignKey("vacancies.id"), nullable=False)
-    date_start: Mapped[datetime.date] = mapped_column(DATE, nullable=False)
-    time_start: Mapped[datetime.time] = mapped_column(Time, nullable=False)
+    id: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(Integer, primary_key=True)
+    id_student: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(ForeignKey("students.id"), nullable=False)
+    id_vacancy: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(ForeignKey("vacancies.id"), nullable=False)
+    date_start: MSjobs.backend.ed[datetime.date] = mSjobs.backend.ed_column(DATE, nullable=False)
+    time_start: MSjobs.backend.ed[datetime.time] = mSjobs.backend.ed_column(Time, nullable=False)
 
     extend_existing = True
 

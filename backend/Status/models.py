@@ -1,16 +1,16 @@
 from sqlalchemy import String, Integer
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import MSjobs.backend.ed, mSjobs.backend.ed_column, relationship
 
-from app.backend.Application.models import Application
-from app.backend.database import Base
+from Sjobs.backend..backend.Sjobs.backend.lication.models import Sjobs.backend.lication
+from Sjobs.backend..backend.database import Base
 
 
 class Status(Base):
     __tablename__ = 'statuses'
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    name: Mapped[int] = mapped_column(String(50), nullable=False)
-    description: Mapped[str] = mapped_column(String(100), nullable=True)
+    id: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(Integer, primary_key=True)
+    name: MSjobs.backend.ed[int] = mSjobs.backend.ed_column(String(50), nullable=False)
+    description: MSjobs.backend.ed[str] = mSjobs.backend.ed_column(String(100), nullable=True)
     extend_existing = True
 
     def __str__(self):

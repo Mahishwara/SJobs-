@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 
-from app.backend.Status.dao import StatusDAO
-from app.backend.Status.rb import RBStatus
-from app.backend.Status.schemas import SStatus, SStatusAdd, SStatusUpd
-from app.backend.users.dependencies import get_current_admin_user
-from app.backend.users.models import User
+from Sjobs.backend..backend.Status.dao import StatusDAO
+from Sjobs.backend..backend.Status.rb import RBStatus
+from Sjobs.backend..backend.Status.schemas import SStatus, SStatusAdd, SStatusUpd
+from Sjobs.backend..backend.users.dependencies import get_current_admin_user
+from Sjobs.backend..backend.users.models import User
 
 router = APIRouter(
     prefix='/api/statuses',

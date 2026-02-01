@@ -1,5 +1,5 @@
-from app.backend.dao.base import BaseDAO
-from app.backend.Status.models import Status
+from Sjobs.backend..backend.dao.base import BaseDAO
+from Sjobs.backend..backend.Status.models import Status
 
 
 class StatusDAO(BaseDAO):
