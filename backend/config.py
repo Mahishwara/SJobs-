@@ -3,15 +3,12 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    def __init__(self, data):
-        POSTGRES_USER: data['POSTGRES_USER']
-        POSTGRES_PASSWORD: data['POSTGRES_PASSWORD']
-        POSTGRES_DB: data['POSTGRES_DB']
-        POSTGRES_HOST: data['POSTGRES_HOST']
-        POSTGRES_PORT: data['POSTGRES_PORT']
-        SECRET_KEY: data['SECRET_KEY']
-        ALGORITHM: data['ALGORITHM']
-
+    POSTGRES_USER = os.getenv('POSTGRES_USER')
+    POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
+    POSTGRES_DB = os.getenv('POSTGRES_DB')
+    POSTGRES_HOST = os.getenv('POSTGRES_HOST')
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    ALGORITHM = os.getenv('ALGORITHM')
 
 settings = Settings(os.environ)
 
