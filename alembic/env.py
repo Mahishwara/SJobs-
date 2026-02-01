@@ -16,7 +16,6 @@ from backend.Student.models import Student
 from backend.users.models import User
 from backend.Vacancy.models import Vacancy
 from backend.Interview.models import Interview
-from backend.Role_Permission.models import Role, Permission
 from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
