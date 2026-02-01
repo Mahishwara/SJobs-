@@ -1,7 +1,6 @@
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase
-from backend.config import settings
-import psycopg2
+from app.backend.config import settings
 
 
 

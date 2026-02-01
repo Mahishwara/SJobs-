@@ -1,5 +1,5 @@
-from backend.dao.base import BaseDAO
-from backend.Employer.models import Employer
+from app.backend.dao.base import BaseDAO
+from app.backend.Employer.models import Employer
 
 
 class EmployerDAO(BaseDAO):

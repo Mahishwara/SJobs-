@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 
-from backend.Feedback.dao import FeedbackDAO
-from backend.Feedback.rb import RBFeedback
-from backend.Feedback.schemas import SFeedback, SFeedbackAdd, SFeedbackUpd
-from backend.users.dependencies import get_current_admin_user
-from backend.users.models import User
+from app.backend.Feedback.dao import FeedbackDAO
+from app.backend.Feedback.rb import RBFeedback
+from app.backend.Feedback.schemas import SFeedback, SFeedbackAdd, SFeedbackUpd
+from app.backend.users.dependencies import get_current_admin_user
+from app.backend.users.models import User
 
 
 router = APIRouter(

@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
-from backend.Vacancy.dao import VacancyDAO
-from backend.Vacancy.rb import RBVacancy
-from backend.Vacancy.schemas import SVacancy, SVacancyAdd, SVacancyUpd, SVacancyUpdActive
-from backend.users.dependencies import get_current_admin_user
-from backend.users.models import User
+from app.backend.Vacancy.dao import VacancyDAO
+from app.backend.Vacancy.rb import RBVacancy
+from app.backend.Vacancy.schemas import SVacancy, SVacancyAdd, SVacancyUpd, SVacancyUpdActive
+from app.backend.users.dependencies import get_current_admin_user
+from app.backend.users.models import User
 
 
 router = APIRouter(

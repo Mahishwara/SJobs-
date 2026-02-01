@@ -1,5 +1,5 @@
-from backend.dao.base import BaseDAO
-from backend.Application.models import Application
+from app.backend.dao.base import BaseDAO
+from app.backend.Application.models import Application
 
 
 class ApplicationDAO(BaseDAO):

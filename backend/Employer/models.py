@@ -1,6 +1,6 @@
 from sqlalchemy import String, Integer, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column
-from backend.database import Base
+from app.backend.database import Base
 
 
 class Employer(Base):
