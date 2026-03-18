@@ -1,5 +1,6 @@
 import uvicorn
 from fastapi import FastAPI, Request
+from fastapi.exceptions import RequestValidationError
 from fastapi_cors import CORS
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -12,8 +13,9 @@ from backend.Vacancy.router import router as router_vacancy
 from backend.Message.router import router as router_message
 from backend.Employer.router import router as router_employer
 from backend.Feedback.router import router as router_feedback
-from backend.Interview.router import router as router_interview
+from backend.Role.router import router as router_role
 from backend.Application.router import router as router_application
+from backend.error_handlers import validation_error_handler
 
 origins = [
     "http://localhost.tiangolo.com",
@@ -21,7 +23,8 @@ origins = [
     "http://localhost",
     "http://localhost:5173",
 ]
-app = FastAPI()
+app = FastAPI(title="SJobs API", description="API для поиска стажировок и временной работы в учебном заведении")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -30,16 +33,18 @@ app.add_middleware(
     allow_headers=["*"]      # Разрешенные заголовки
 )
 
+# Регистрация обработчика ошибок валидации
+app.add_exception_handler(RequestValidationError, validation_error_handler)
+
 app.include_router(router_user)
 app.include_router(router_student)
 app.include_router(router_skill)
 app.include_router(router_status)
 app.include_router(router_vacancy)
 app.include_router(router_message)
-app.include_router(router_message)
 app.include_router(router_employer)
 app.include_router(router_feedback)
-app.include_router(router_interview)
+app.include_router(router_role)
 app.include_router(router_application)
 
 

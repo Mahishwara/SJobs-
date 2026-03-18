@@ -4,7 +4,7 @@ from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
-from applications.models import Application
+from Applications.models import Application
 from departments.models import Department
 from feedbacks.models import Feedback
 from jobs.models import Job

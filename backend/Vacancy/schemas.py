@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field, field_validator
 from datetime import datetime, date
+from backend.validators import FieldValidator, ValidationRules
 
 
 class SVacancy(BaseModel):
@@ -8,69 +9,112 @@ class SVacancy(BaseModel):
 
     id: int
     post: str = Field(..., min_length=1, max_length=50, description='Наименование вакансии')
-    description: str = Field(..., max_length=100, description='Дополнительная информации')
+    description: str = Field(..., max_length=500, description='Дополнительная информация о вакансии')
     date_begin: date = Field(..., description='Дата начала стажировки')
     date_end: date = Field(..., description='Дата окончания стажировки')
-    level_skill: int = Field(..., description='Ссылка на нужный навык')
-    salary: int = Field(..., description='Зарплата от')
-    id_employer: int = Field(..., description='Идентификатор на работаделя')
-    is_active: bool = Field(..., description='Активна/неактивна вакансия')
-
-
+    level_skill: int = Field(..., gt=0, description='Требуемый уровень навыка (ID)')
+    salary: int = Field(..., ge=0, le=1000000, description='Зарплата (в рублях)')
+    id_employer: int = Field(..., gt=0, description='Идентификатор работодателя')
+    is_active: bool = Field(..., description='Активна ли вакансия')
 
 
 class SVacancyAdd(BaseModel):
     post: str = Field(..., min_length=1, max_length=50, description='Наименование вакансии')
-    description: str = Field(..., max_length=100, description='Дополнительная информации')
+    description: str = Field(..., min_length=3, max_length=500, description='Дополнительная информация о вакансии')
     date_begin: str = Field(..., description='Дата начала стажировки, в формате ГГГГ-ММ-ДД')
     date_end: str = Field(..., description='Дата окончания стажировки, в формате ГГГГ-ММ-ДД')
-    level_skill: int = Field(..., description='Ссылка на нужный навык')
-    salary: int = Field(..., description='Зарплата от')
-    id_employer: int = Field(..., description='Идентификатор на работаделя')
+    level_skill: int = Field(..., gt=0, description='Требуемый уровень навыка (ID)')
+    salary: int = Field(..., ge=0, le=1000000, description='Зарплата (в рублях)')
+    id_employer: int = Field(..., gt=0, description='Идентификатор работодателя')
 
-
-    @field_validator("salary")
+    @field_validator('post', mode='before')
     @classmethod
-    def validate_salary(cls, values: int) -> int:
-        if values > 0 and values < 999:
-            return values
-        raise ValueError('Оплата должна быть в диапазоне от 0 до 999 тысяч рублей')
-
-
-    @field_validator('date_begin', 'date_end')
+    def validate_post(cls, v):
+        return FieldValidator.validate_string(v, min_length=1, max_length=50, field_name='Должность')
+    
+    @field_validator('description', mode='before')
     @classmethod
-    def validate_date(cls, values: str) -> date:
-        validate_date = datetime.strptime(values, '%Y-%m-%d')
-
-        if validate_date and validate_date > datetime.today():
-            return validate_date.date()
-        raise ValueError('Дата должна быть в формате ГГГГ-ММ-ДД и быть позднее сегодняшнего дня')
+    def validate_description(cls, v):
+        return FieldValidator.validate_string(v, min_length=3, max_length=500, field_name='Описание')
+    
+    @field_validator('salary', mode='before')
+    @classmethod
+    def validate_salary(cls, v):
+        return FieldValidator.validate_salary(v)
+    
+    @field_validator('date_begin', mode='before')
+    @classmethod
+    def validate_date_begin(cls, v):
+        return FieldValidator.validate_date(v, field_name='Дата начала', future_required=True)
+    
+    @field_validator('date_end', mode='before')
+    @classmethod
+    def validate_date_end(cls, v):
+        return FieldValidator.validate_date(v, field_name='Дата окончания', future_required=True)
+    
+    @field_validator('date_end', mode='after')
+    @classmethod
+    def validate_date_range(cls, v, info):
+        if 'date_begin' in info.data:
+            date_begin = info.data['date_begin']
+            if date_begin and date_begin >= v:
+                raise ValueError('Дата окончания должна быть позже даты начала')
+        return v
 
 
 class SVacancyUpd(BaseModel):
-    post: str = Field(..., min_length=1, max_length=50, description='Новое наименование вакансии')
-    description: str = Field(..., max_length=100, description='Новая дополнительная информации')
-    date_begin: str = Field(..., description='Дата начала стажировки, в формате ГГГГ-ММ-ДД')
-    date_end: str = Field(..., description='Дата окончания стажировки, в формате ГГГГ-ММ-ДД')
-    level_skill: int = Field(..., description='Новая ссылка на нужный навык')
-    salary: int = Field(..., description='Новая зарплата, можно указать: По соглосованию')
-    id_employer: int = Field(..., description='Идентификатор на работаделя')
+    post: str | None = Field(None, min_length=1, max_length=50, description='Новое наименование вакансии')
+    description: str | None = Field(None, min_length=3, max_length=500, description='Новое описание вакансии')
+    date_begin: str | None = Field(None, description='Дата начала стажировки, в формате ГГГГ-ММ-ДД')
+    date_end: str | None = Field(None, description='Дата окончания стажировки, в формате ГГГГ-ММ-ДД')
+    level_skill: int | None = Field(None, gt=0, description='Новый уровень навыка (ID)')
+    salary: int | None = Field(None, ge=0, le=1000000, description='Новая зарплата (в рублях)')
+    id_employer: int | None = Field(None, gt=0, description='Идентификатор работодателя')
 
-    @field_validator("salary")
+    @field_validator('post', mode='before')
     @classmethod
-    def validate_salary(cls, values: int) -> int:
-        if values > 0 and values < 999:
-            return values
-        raise ValueError('Оплата должна быть в диапазоне от 0 до 999 тысяч рублей')
-
-    @field_validator('date_begin', 'date_end')
+    def validate_post(cls, v):
+        if v is not None:
+            return FieldValidator.validate_string(v, min_length=1, max_length=50, field_name='Должность')
+        return v
+    
+    @field_validator('description', mode='before')
     @classmethod
-    def validate_date(cls, values: str) -> date:
-        validate_date = datetime.strptime(values, '%Y-%m-%d')
-        if validate_date and validate_date > datetime.today():
-            return validate_date
-        raise ValueError('Дата должна быть в формате ГГГГ-ММ-ДД и быть позднее сегоднешнего дня')
+    def validate_description(cls, v):
+        if v is not None:
+            return FieldValidator.validate_string(v, min_length=3, max_length=500, field_name='Описание')
+        return v
+    
+    @field_validator('salary', mode='before')
+    @classmethod
+    def validate_salary(cls, v):
+        if v is not None:
+            return FieldValidator.validate_salary(v)
+        return v
+    
+    @field_validator('date_begin', mode='before')
+    @classmethod
+    def validate_date_begin(cls, v):
+        if v is not None:
+            return FieldValidator.validate_date(v, field_name='Дата начала', future_required=True)
+        return v
+    
+    @field_validator('date_end', mode='before')
+    @classmethod
+    def validate_date_end(cls, v):
+        if v is not None:
+            return FieldValidator.validate_date(v, field_name='Дата окончания', future_required=True)
+        return v
+    
+    @field_validator('date_end', mode='after')
+    @classmethod
+    def validate_date_range(cls, v, info):
+        if v is not None and 'date_begin' in info.data:
+            date_begin = info.data.get('date_begin')
+            if date_begin and date_begin >= v:
+                raise ValueError('Дата окончания должна быть позже даты начала')
+        return v
 
 
 class SVacancyUpdActive(BaseModel):
-    is_active: bool
+    is_active: bool = Field(..., description='Активна ли вакансия')
